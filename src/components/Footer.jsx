@@ -5,7 +5,7 @@ export default function Footer() {
     <footer style={styles.footer}>
       <div style={styles.container}>
         <div style={styles.logoCol}>
-          <div style={styles.logo}>team<span style={{ color: '#4b6bfb' }}>.</span></div>
+          <div style={styles.logo}>team<span style={{ color: '#5468e7' }}>.</span></div>
           <p style={styles.tagline}>Collaboration platform for modern team</p>
         </div>
 
@@ -62,15 +62,14 @@ export default function Footer() {
 
 const styles = {
   footer: {
-    backgroundColor: '#0f1020',
+    backgroundColor: '#232340',
     color: '#ffffff',
     padding: '80px 0 40px 0',
-    fontFamily: 'var(--font-body)',
+    fontFamily: 'var(--font-family)',
   },
   container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 40px',
+    paddingLeft: '9%',
+    paddingRight: '9%',
     display: 'grid',
     gridTemplateColumns: '1.5fr 1fr 1fr 1.2fr 1.5fr',
     gap: '40px',
@@ -80,7 +79,7 @@ const styles = {
     textAlign: 'left',
   },
   logo: {
-    fontFamily: 'var(--font-heading)',
+    fontFamily: 'var(--font-family)',
     fontSize: '28px',
     fontWeight: '800',
     color: '#ffffff',
@@ -90,7 +89,8 @@ const styles = {
   tagline: {
     fontSize: '14px',
     lineHeight: '1.6',
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#f5f5f5',
+    opacity: 0.8,
     margin: 0,
     maxWidth: '200px',
   },
@@ -98,10 +98,10 @@ const styles = {
     textAlign: 'left',
   },
   colTitle: {
-    fontFamily: 'var(--font-heading)',
+    fontFamily: 'var(--font-family)',
     fontSize: '16px',
     fontWeight: '600',
-    color: '#4b6bfb',
+    color: '#ffffff',
     marginBottom: '20px',
     marginRight: 0,
     marginTop: 0,
@@ -116,12 +116,14 @@ const styles = {
   },
   link: {
     fontSize: '14px',
-    color: 'rgba(255, 255, 255, 0.8)',
-    transition: 'color 0.3s ease',
+    color: '#f5f5f5',
+    opacity: 0.7,
+    transition: 'opacity 0.3s ease',
   },
   textItem: {
     fontSize: '14px',
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: '#f5f5f5',
+    opacity: 0.7,
     lineHeight: '1.5',
   },
   subscribeCol: {
@@ -129,7 +131,8 @@ const styles = {
   },
   subtext: {
     fontSize: '14px',
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: '#f5f5f5',
+    opacity: 0.7,
     marginBottom: '16px',
     marginRight: 0,
     marginTop: 0,
@@ -140,34 +143,35 @@ const styles = {
   },
   input: {
     width: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(245, 245, 245, 0.24)',
     border: 'none',
-    borderRadius: '6px',
+    borderRadius: '4px',
     padding: '12px 40px 12px 16px',
     fontSize: '14px',
     color: '#ffffff',
     outline: 'none',
-    fontFamily: 'var(--font-body)',
+    fontFamily: 'var(--font-family)',
   },
   arrowIcon: {
     position: 'absolute',
     right: '16px',
     top: '50%',
     transform: 'translateY(-50%)',
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: '#ffffff',
     fontSize: '16px',
     pointerEvents: 'none',
   },
   bottomBar: {
-    maxWidth: '1200px',
     margin: '60px auto 0 auto',
-    padding: '0 40px',
+    paddingLeft: '9%',
+    paddingRight: '9%',
     borderTop: '1px solid rgba(255, 255, 255, 0.08)',
     paddingTop: '30px',
     textAlign: 'left',
   },
   copyright: {
     fontSize: '14px',
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: '#f5f5f5',
+    opacity: 0.5,
   },
 };

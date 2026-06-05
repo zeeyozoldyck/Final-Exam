@@ -7,7 +7,7 @@ const TESTIMONIALS = [
     id: 1,
     stars: 5,
     text: "Vestibulum eu quam nec neque pellentesque efficitur id eget nisl. Proin porta est convallis lacus blandit pretium sed non enim. Maecenas lacinia non orci at aliquam. Donec finibus, urna bibendum ultricies laoreet.",
-    name: "Chealsea Morgan",
+    name: "Chelsea Morgan",
     role: "CEO of Subway",
     avatarBg: "#feebc8",
     avatarColor: "#dd6b20",
@@ -65,7 +65,17 @@ export default function Testimonials() {
         >
           {TESTIMONIALS.map((item) => (
             <SwiperSlide key={item.id}>
-              <div style={styles.card}>
+              <div 
+                style={styles.card}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.08)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'none';
+                  e.currentTarget.style.boxShadow = '0 8px 20px rgba(0,0,0,0.02)';
+                }}
+              >
                 <div style={styles.stars}>
                   {Array.from({ length: item.stars }).map((_, i) => (
                     <span key={i} style={styles.star}>★</span>
@@ -90,12 +100,14 @@ export default function Testimonials() {
           ))}
         </Swiper>
 
-        {/* Custom Navigation */}
+        {}
         <div style={styles.navigation}>
           <button 
             onClick={() => swiperRef.current?.swiper.slidePrev()} 
             style={styles.navBtn}
             aria-label="Previous slide"
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#5468e71a'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
           >
             ←
           </button>
@@ -103,6 +115,8 @@ export default function Testimonials() {
             onClick={() => swiperRef.current?.swiper.slideNext()} 
             style={styles.navBtn}
             aria-label="Next slide"
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#5468e71a'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ffffff'}
           >
             →
           </button>
@@ -114,21 +128,20 @@ export default function Testimonials() {
 
 const styles = {
   section: {
-    padding: '100px 0',
-    backgroundColor: '#f8f9fa',
-    textAlign: 'center',
+    padding: '120px 0',
+    backgroundColor: '#ffffff',
+    textAlign: 'left',
   },
   container: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '0 40px',
+    paddingLeft: '9%',
+    paddingRight: '9%',
     position: 'relative',
   },
   title: {
-    fontSize: '42px',
+    fontSize: '38px',
     lineHeight: '1.2',
     fontWeight: '800',
-    color: 'var(--color-dark)',
+    color: '#232340',
     marginBottom: '60px',
     letterSpacing: '-1px',
   },
@@ -139,13 +152,14 @@ const styles = {
     backgroundColor: '#ffffff',
     borderRadius: '16px',
     padding: '36px',
-    boxShadow: 'var(--shadow-md)',
+    boxShadow: '0 8px 20px rgba(0,0,0,0.02)',
     textAlign: 'left',
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
     minHeight: '320px',
-    border: '1px solid rgba(0,0,0,0.02)',
+    border: '1px solid #eef2f6',
+    transition: 'all 0.3s ease',
   },
   stars: {
     display: 'flex',
@@ -153,14 +167,15 @@ const styles = {
     marginBottom: '20px',
   },
   star: {
-    color: '#ff9900',
+    color: '#ffb800',
     fontSize: '18px',
   },
   text: {
     fontSize: '15px',
     lineHeight: '1.6',
-    color: 'var(--color-text-gray)',
-    fontFamily: 'var(--font-body)',
+    color: '#232340',
+    opacity: 0.85,
+    fontFamily: 'var(--font-family)',
     marginBottom: '30px',
     flexGrow: 1,
   },
@@ -171,8 +186,8 @@ const styles = {
     marginTop: 'auto',
   },
   avatar: {
-    width: '44px',
-    height: '44px',
+    width: '48px',
+    height: '48px',
     borderRadius: '50%',
     display: 'flex',
     alignItems: 'center',
@@ -183,30 +198,31 @@ const styles = {
   name: {
     fontSize: '16px',
     fontWeight: '700',
+    color: '#232340',
     margin: 0,
   },
   role: {
     fontSize: '12px',
-    color: 'var(--color-text-gray)',
+    color: '#6c6f8a',
     margin: 0,
   },
   navigation: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     gap: '16px',
-    marginTop: '30px',
+    marginTop: '20px',
   },
   navBtn: {
-    width: '48px',
-    height: '48px',
+    width: '40px',
+    height: '40px',
     borderRadius: '50%',
-    border: '2px solid #e2e8f0',
+    border: '1px solid #eef2f6',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     fontSize: '18px',
     fontWeight: 'bold',
-    color: '#4b6bfb',
+    color: '#5468e7',
     backgroundColor: '#ffffff',
     transition: 'all 0.3s ease',
     cursor: 'pointer',

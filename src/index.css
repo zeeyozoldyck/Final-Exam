@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family: 'Lexend Deca', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  --color-primary: #4b6bfb;
-  --color-primary-hover: #3b5bd9;
-  --color-dark: #0b0c16;
-  --color-text-dark: #1e2030;
-  --color-text-gray: #5e6278;
-  --color-light-bg: #f8f9fa;
+  --color-primary: #5468e7;
+  --color-primary-hover: #4354c7;
+  --color-dark: #232340;
+  --color-dark-bg: #161628;
+  --color-text-dark: #232340;
+  --color-text-light: #f5f5f5;
+  --color-text-gray: #7676b2;
   --color-white: #ffffff;
   
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 24px 70px rgba(0, 0, 0, 0.15);
 
   font-size: 16px;
-  line-height: 1.5;
-  font-family: var(--font-body);
+  line-height: 1.6;
+  font-family: var(--font-family);
   color: var(--color-text-gray);
   background-color: var(--color-white);
   overflow-x: hidden;
@@ -54,22 +54,20 @@ button {
   font-family: inherit;
 }
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-family);
   color: var(--color-dark);
   margin-top: 0;
   font-weight: 700;
 }
 
-/* Custom styled inputs and buttons */
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
-  font-family: var(--font-heading);
+  color: var(--color-text-light);
+  font-family: var(--font-family);
   font-weight: 500;
   padding: 0.8rem 1.8rem;
-  border-radius: 8px;
+  border-radius: 4px;
   transition: all 0.3s ease;
   font-size: 1rem;
   display: inline-flex;
@@ -80,10 +78,9 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(75, 107, 251, 0.3);
+  box-shadow: 0 8px 20px rgba(84, 104, 231, 0.3);
 }
 
-/* Swiper custom overrides */
 .swiper {
   width: 100%;
   padding-bottom: 3rem !important;

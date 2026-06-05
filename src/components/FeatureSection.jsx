@@ -5,16 +5,16 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function FeatureSection({ title, description, imageSrc, imageLeft, overlay }) {
+export default function FeatureSection({ title, description, baseImage, imageLeft, overlays }) {
   const containerRef = useRef(null);
   const leftColRef = useRef(null);
   const rightColRef = useRef(null);
 
   useGSAP(() => {
-    // Left column enters from left
+    
     gsap.fromTo(
       leftColRef.current,
-      { x: -120, opacity: 0 },
+      { x: imageLeft ? 80 : -80, opacity: 0 },
       {
         x: 0,
         opacity: 1,
@@ -28,10 +28,9 @@ export default function FeatureSection({ title, description, imageSrc, imageLeft
       }
     );
 
-    // Right column enters from right
     gsap.fromTo(
       rightColRef.current,
-      { x: 120, opacity: 0 },
+      { x: imageLeft ? -80 : 80, opacity: 0 },
       {
         x: 0,
         opacity: 1,
@@ -52,16 +51,26 @@ export default function FeatureSection({ title, description, imageSrc, imageLeft
         ...styles.container,
         flexDirection: imageLeft ? 'row' : 'row-reverse'
       }}>
-        {/* Left Column (Relative to flex direction) */}
-        <div ref={leftColRef} style={styles.column}>
+        {}
+        <div ref={rightColRef} style={styles.column}>
           <div style={styles.visualWrapper}>
-            <img src={imageSrc} alt={title} style={styles.mainImage} />
-            {overlay && <div style={styles.overlayContainer}>{overlay}</div>}
+            <img src={baseImage} alt={title} style={styles.mainImage} />
+            {overlays && overlays.map((overlay, index) => (
+              <img 
+                key={index} 
+                src={overlay.src} 
+                alt={`overlay-${index}`} 
+                style={{
+                  ...styles.overlayImage,
+                  ...overlay.style
+                }}
+              />
+            ))}
           </div>
         </div>
 
-        {/* Right Column (Relative to flex direction) */}
-        <div ref={rightColRef} style={styles.textColumn}>
+        {}
+        <div ref={leftColRef} style={styles.textColumn}>
           <h2 style={styles.title}>{title}</h2>
           <p style={styles.description}>{description}</p>
           <a href="#learn" style={styles.link}>
@@ -75,7 +84,7 @@ export default function FeatureSection({ title, description, imageSrc, imageLeft
 
 const styles = {
   section: {
-    padding: '80px 0',
+    padding: '100px 0',
     backgroundColor: '#ffffff',
     overflow: 'hidden',
   },
@@ -86,62 +95,63 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     gap: '80px',
+    flexWrap: 'wrap',
   },
   column: {
-    flex: 1,
+    flex: '1 1 450px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
   textColumn: {
-    flex: 1,
+    flex: '1 1 400px',
     textAlign: 'left',
+    maxWidth: '480px',
   },
   visualWrapper: {
     position: 'relative',
     width: '100%',
-    maxWidth: '480px',
-    borderRadius: '16px',
-    overflow: 'visible',
-    boxShadow: 'var(--shadow-md)',
+    maxWidth: '460px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   mainImage: {
     width: '100%',
     height: 'auto',
-    borderRadius: '16px',
+    borderRadius: '12px',
+    boxShadow: '0 15px 45px rgba(0, 0, 0, 0.08)',
     display: 'block',
   },
-  overlayContainer: {
+  overlayImage: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    pointerEvents: 'none',
+    borderRadius: '8px',
+    boxShadow: '0 12px 35px rgba(0, 0, 0, 0.1)',
+    transition: 'all 0.3s ease',
   },
   title: {
     fontSize: '38px',
     lineHeight: '1.2',
     fontWeight: '800',
-    color: 'var(--color-dark)',
+    color: '#232340',
     marginBottom: '20px',
-    letterSpacing: '-0.8px',
+    letterSpacing: '-1px',
   },
   description: {
     fontSize: '16px',
-    lineHeight: '1.6',
-    color: 'var(--color-text-gray)',
-    marginBottom: '30px',
-    fontFamily: 'var(--font-body)',
+    lineHeight: '1.65',
+    color: '#7676b2',
+    marginBottom: '28px',
+    fontFamily: 'var(--font-family)',
   },
   link: {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '8px',
-    color: '#4b6bfb',
+    color: '#5468e7',
     fontWeight: '600',
     fontSize: '16px',
-    fontFamily: 'var(--font-heading)',
+    fontFamily: 'var(--font-family)',
   },
   arrow: {
     transition: 'transform 0.3s ease',

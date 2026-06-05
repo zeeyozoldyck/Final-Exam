@@ -29,11 +29,10 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} style={styles.heroSection}>
-      <div style={styles.overlay}></div>
       <div style={styles.container}>
         <div style={styles.content}>
           <h1 ref={titleRef} style={styles.title}>
-            Instant collaboration<br />for remote teams
+            Instant collaboration for remote teams
           </h1>
           <p ref={descRef} style={styles.description}>
             All-in-one place for your remote team to chat, collaborate and track project progress.
@@ -59,90 +58,78 @@ const styles = {
   heroSection: {
     position: 'relative',
     height: '100vh',
-    minHeight: '700px',
-    backgroundImage: 'url("/assets/hero_bg.png")',
+    width: '100%',
+    backgroundImage: 'linear-gradient(70deg, #232340 0%, #161628 24%, rgba(0, 0, 0, 0) 80%), url("/assets/hero-CNE3053A.jpg")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     display: 'flex',
     alignItems: 'center',
-    paddingTop: '80px', // spacing for header
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(15, 16, 32, 0.75)',
-    zIndex: 1,
   },
   container: {
-    maxWidth: '1200px',
     width: '100%',
-    margin: '0 auto',
-    padding: '0 40px',
-    position: 'relative',
-    zIndex: 2,
+    paddingLeft: '9%',
+    paddingRight: '9%',
   },
   content: {
-    maxWidth: '650px',
+    maxWidth: '500px',
     textAlign: 'left',
   },
   title: {
-    fontSize: '56px',
-    lineHeight: '1.15',
+    fontSize: '48px',
+    lineHeight: '1.2',
     fontWeight: '800',
     color: '#ffffff',
-    letterSpacing: '-1.5px',
+    letterSpacing: '-1px',
     marginBottom: '20px',
   },
   description: {
-    fontSize: '18px',
+    fontSize: '16px',
     lineHeight: '1.6',
     fontWeight: '400',
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginBottom: '40px',
-    fontFamily: 'var(--font-body)',
+    color: 'rgba(245, 245, 245, 0.85)',
+    marginBottom: '32px',
+    fontFamily: 'var(--font-family)',
   },
   formContainer: {
     display: 'flex',
-    gap: '16px',
+    gap: '12px',
+    width: '100%',
+    flexWrap: 'wrap',
   },
   inputWrapper: {
     position: 'relative',
-    flex: 1,
-    maxWidth: '320px',
+    flex: '1 1 200px',
+    maxWidth: '280px',
   },
   input: {
     width: '100%',
     backgroundColor: '#ffffff',
-    border: 'none',
-    borderRadius: '6px',
-    padding: '16px 20px',
+    border: '2px solid #d1ecfd',
+    borderRadius: '4px',
+    padding: '16px 40px 16px 16px',
     fontSize: '15px',
-    fontFamily: 'var(--font-body)',
-    color: '#1e2030',
+    fontFamily: 'var(--font-family)',
+    color: '#7676b2',
     outline: 'none',
   },
   arrowIcon: {
     position: 'absolute',
-    right: '20px',
+    right: '16px',
     top: '50%',
     transform: 'translateY(-50%)',
-    color: '#4b6bfb',
+    color: '#5468e7',
     fontSize: '18px',
     pointerEvents: 'none',
   },
   btn: {
-    backgroundColor: '#4b6bfb',
+    backgroundColor: '#5468e7',
     color: '#ffffff',
-    fontFamily: 'var(--font-heading)',
+    fontFamily: 'var(--font-family)',
     fontSize: '15px',
     fontWeight: '600',
-    padding: '16px 32px',
-    borderRadius: '6px',
+    padding: '16px 28px',
+    borderRadius: '4px',
     border: 'none',
-    boxShadow: '0 4px 14px rgba(75, 107, 251, 0.3)',
     transition: 'all 0.3s ease',
   },
 };
